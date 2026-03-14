@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
-const bcrypt = require("bcryptjs");
+const { hash, compare } = require("bcryptjs");
 
 const userSchema = mongoose.Schema({
   name: {
@@ -53,9 +53,14 @@ const userSchema = mongoose.Schema({
 //mieddleware to check if the password is modified or not
 userSchema.pre("save", async function () {
   if (!this.isModified("password")) return;
-  this.password = await bcrypt.hash(this.password, 12); //salt key: 9adch bch t3ml hashage men mara 
+ // this.password = await bcrypt.hash(this.password, 12); //salt key: 9adch bch t3ml hashage men mara 
+  this.password = await hash(this.password, 12);
   this.passwordConfirm = undefined;
 });
+
+userSchema.methods.isPassCorrect = async function (pass, hPass) {
+  return await compare(pass, hPass);
+};
 
 const User = mongoose.model("User", userSchema);
 
