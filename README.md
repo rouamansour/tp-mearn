@@ -1,4 +1,4 @@
-# tp-mearn
+# app mearn
 
 A hands-on practice project built with the **MERN** stack (MongoDB · Express.js · Next.js · Node.js).
 Designed to explore full-stack JavaScript development with a REST API backend and a server-side rendered frontend.
