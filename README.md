@@ -137,8 +137,3 @@ npm start      # Start production server
 - [MongoDB Docs](https://www.mongodb.com/docs/)
 - [Mongoose Docs](https://mongoosejs.com/docs/)
 
----
-
-## 👩‍💻 Author
-
-**Roua Mansour** — [@rouamansour](https://github.com/rouamansour)
